@@ -1,0 +1,217 @@
+# Finnish translations for sos package.
+# Ville-Pekka Vainio <vpivaini@cs.helsinki.fi>, 2009, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: sos\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-12-19 14:08-0600\n"
+"PO-Revision-Date: 2010-03-28 01:03+0200\n"
+"Last-Translator: Ville-Pekka Vainio <vpivaini@cs.helsinki.fi>\n"
+"Language-Team: Finnish <laatu@lokalisointi.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: pygettext.py 1.5\n"
+
+#: sos/sosreport.py:224
+#, python-format
+msgid "sosreport (version %s)"
+msgstr "sosreport (versio %s)"
+
+#: sos/sosreport.py:431
+#, python-format
+msgid "plugin %s does not validate, skipping"
+msgstr "liitännäinen %s on virheellinen, ohitetaan"
+
+#: sos/sosreport.py:432
+#, fuzzy
+msgid "does not validate"
+msgstr "liitännäinen %s on virheellinen, ohitetaan"
+
+#: sos/sosreport.py:436
+#, fuzzy, python-format
+msgid "plugin %s requires root permissions to execute, skipping"
+msgstr "sosreportin käyttö vaatii root-oikeudet."
+
+#: sos/sosreport.py:437
+msgid "requires root"
+msgstr ""
+
+#: sos/sosreport.py:448
+msgid "inactive"
+msgstr ""
+
+#: sos/sosreport.py:453
+#, fuzzy, python-format
+msgid "plugin %s does not install, skipping: %s"
+msgstr "liitännäinen %s ei asennu, ohitetaan"
+
+#: sos/sosreport.py:534
+msgid "no valid plugins found"
+msgstr "kelvollisia liitännäisiä ei löytynyt"
+
+#: sos/sosreport.py:538
+msgid "The following plugins are currently enabled:"
+msgstr "Seuraavat liitännäiset ovat tällä hetkellä käytössä:"
+
+#: sos/sosreport.py:543
+msgid "No plugin enabled."
+msgstr "Yhtään liitännäistä ei ole käytössä."
+
+#: sos/sosreport.py:547
+msgid "The following plugins are currently disabled:"
+msgstr "Seuraavat liitännäiset ovat tällä hetkellä poissa käytöstä:"
+
+#: sos/sosreport.py:556
+msgid "The following plugin options are available:"
+msgstr "Seuraavat liitännäisen asetukset ovat käytettävissä:"
+
+#: sos/sosreport.py:571
+msgid "No plugin options available."
+msgstr "Liitännäisellä ei ole asetuksia."
+
+#: sos/sosreport.py:580
+msgid "Press ENTER to continue, or CTRL-C to quit.\n"
+msgstr "Paina ENTER jatkaaksesi, CTRL-C lopettaaksesi.\n"
+
+#: sos/sosreport.py:603
+msgid "One or more plugins have detected a problem in your configuration."
+msgstr "Yksi tai useampi liitännäinen on huomannut ongelman järjestelmässä."
+
+#: sos/sosreport.py:605
+msgid "Please review the following messages:"
+msgstr "Tarkista seuraavat viestit:"
+
+#: sos/sosreport.py:621
+msgid "Are you sure you would like to continue (y/n) ? "
+msgstr "Haluatko jatkaa (k/e)?"
+
+#: sos/sosreport.py:623
+msgid "y"
+msgstr "k"
+
+#: sos/sosreport.py:623
+msgid "Y"
+msgstr "K"
+
+#: sos/sosreport.py:626
+msgid "n"
+msgstr "e"
+
+#: sos/sosreport.py:626
+msgid "N"
+msgstr "E"
+
+#: sos/sosreport.py:819
+msgid "no valid plugins were enabled"
+msgstr "yhtään kelvollista liitännäistä ei ole otettu käyttöön"
+
+#: sos/sosreport.py:926
+#, fuzzy
+msgid " Running plugins. Please wait ..."
+msgstr "  Suoritetaan liitännäisiä. Odota..."
+
+#: sos/policies/__init__.py:60
+#, fuzzy, python-format
+msgid ""
+"This utility will collect some detailed  information about the\n"
+"hardware and setup of your %(distro)s system.\n"
+"The information is collected and an archive is  packaged under\n"
+"/tmp, which you can send to a support representative.\n"
+"%(distro)s will use this information for diagnostic purposes ONLY\n"
+"and it will be considered confidential information.\n"
+"\n"
+"This process may take a while to complete.\n"
+"No changes will be made to your system.\n"
+"\n"
+msgstr ""
+"Tämä ohjelma kerää yksityiskohtaisia tietoja\n"
+"%(distroa)s -järjestelmän laitteistosta ja asetuksista.\n"
+"Tiedot kerätään arkistoon, joka tallennetaan /tmp-hakemistoon.\n"
+"Tämä arkisto voidaan lähettää käyttötukeen.\n"
+"%(distrob)s käyttää tätä tietoa vain vianetsintätarkoituksiin ja\n"
+"tietoa käsitellään luottamuksellisesti.\n"
+"\n"
+"Tämä toiminto voi kestää jonkin aikaa.\n"
+"Järjestelmään ei tehdä muutoksia.\n"
+"\n"
+
+#: sos/policies/__init__.py:179
+#, python-format
+msgid ""
+"Your sosreport has been generated and saved in:\n"
+"  %s"
+msgstr ""
+"Sosreport-raportti on luotu ja tallennettu sijaintiin:\n"
+"  %s"
+
+#: sos/policies/__init__.py:182
+#, fuzzy
+msgid "The checksum is: "
+msgstr "Md5sum-tarkistussumma on:"
+
+#: sos/policies/__init__.py:184
+msgid "Please send this file to your support representative."
+msgstr "Lähetä tämä tiedosto käyttötukeen."
+
+#: sos/policies/__init__.py:207
+msgid "No URL defined in config file."
+msgstr "Asetustiedostossa ei ole määritelty osoitetta."
+
+#: sos/policies/__init__.py:214
+msgid "Cannot upload to specified URL."
+msgstr "Annettuun osoitteeseen ei voida lähettää."
+
+#: sos/policies/__init__.py:251
+#, fuzzy
+msgid "There was a problem uploading your report to Red Hat support. "
+msgstr "Raportin lähettämisessä Red Hatin käyttötukeen oli ongelmia."
+
+#: sos/policies/__init__.py:253
+#, python-format
+msgid "Your report was successfully uploaded to %s with name:"
+msgstr "Raportin lähetys kohteeseen %s onnistui, käytettiin nimeä:"
+
+#: sos/policies/__init__.py:256
+msgid "Please communicate this name to your support representative."
+msgstr "Kerro tämä nimi käyttötukeen."
+
+#: sos/policies/redhat.py:197
+#, python-format
+msgid "Please enter your first initial and last name [%s]: "
+msgstr "Syötä etunimesi ensimmäinen kirjain ja sukunimesi [%s]:"
+
+#: sos/policies/redhat.py:200
+msgid "Please enter the case number that you are generating this report for: "
+msgstr "Syötä tapausnumero, jota varten olet tekemässä tätä raporttia:"
+
+#: sos/policies/redhat.py:221
+msgid "Creating compressed archive..."
+msgstr "Luodaan pakattua arkistoa..."
+
+#~ msgid "Could not create temporary directory."
+#~ msgstr "Väliaikaista hakemistoa ei voitu luoda."
+
+#~ msgid "  sosreport build tree is located at : %s"
+#~ msgstr "  sosreport-käännöspuu on sijainnissa: %s"
+
+#~ msgid "Encrypting archive..."
+#~ msgstr "Salataan arkistoa..."
+
+#~ msgid "There was a problem encrypting your report."
+#~ msgstr "Raportin salaamisessa oli ongelma."
+
+#~ msgid "plugin %s skipped (--skip-plugins)"
+#~ msgstr "liitännäinen %s ohitettiin (--skip-plugins)"
+
+#~ msgid "plugin %s is inactive (use -e or -o to enable)."
+#~ msgstr ""
+#~ "liitännäinen %s ei ole käytössä (ota käyttöön valitsimella -e tai -o)."
+
+#~ msgid "plugin %s not specified in --only-plugins list"
+#~ msgstr "liitännäinen %s ei ole --only-plugins-luettelossa"
+
+#~ msgid "processing options from plugin: %s"
+#~ msgstr "käsitellään liitännäisen %s asetukset"

@@ -1,0 +1,219 @@
+# Slovak translations for sos package.
+# Copyright (C) 2007 ORGANIZATION
+#
+# Ondrej Šulek <feonsu@gmail.com>, 2009, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-12-19 14:08-0600\n"
+"PO-Revision-Date: 2010-04-15 17:38+0200\n"
+"Last-Translator: Ondrej Šulek <feonsu@gmail.com>\n"
+"Language-Team: Slovak <fedora-trans-sk@redhat.com>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 1.0\n"
+
+#: sos/sosreport.py:224
+#, python-format
+msgid "sosreport (version %s)"
+msgstr "sosreport (verzia %s)"
+
+#: sos/sosreport.py:431
+#, python-format
+msgid "plugin %s does not validate, skipping"
+msgstr "nie je možné overiť modul %s, preskakujem"
+
+#: sos/sosreport.py:432
+#, fuzzy
+msgid "does not validate"
+msgstr "nie je možné overiť modul %s, preskakujem"
+
+#: sos/sosreport.py:436
+#, fuzzy, python-format
+msgid "plugin %s requires root permissions to execute, skipping"
+msgstr "sosreport vyžaduje root-ovský prístup"
+
+#: sos/sosreport.py:437
+msgid "requires root"
+msgstr ""
+
+#: sos/sosreport.py:448
+msgid "inactive"
+msgstr ""
+
+#: sos/sosreport.py:453
+#, fuzzy, python-format
+msgid "plugin %s does not install, skipping: %s"
+msgstr "nie je možné nainštalovať modul %s, preskakujem"
+
+#: sos/sosreport.py:534
+msgid "no valid plugins found"
+msgstr "nenájdené žiadne platné moduly"
+
+#: sos/sosreport.py:538
+msgid "The following plugins are currently enabled:"
+msgstr "Nasledujúce moduly sú aktuálne povolené:"
+
+#: sos/sosreport.py:543
+msgid "No plugin enabled."
+msgstr "Žiadny modul nie je povolený."
+
+#: sos/sosreport.py:547
+msgid "The following plugins are currently disabled:"
+msgstr "Nasledujúce moduly sú aktuálne zakázané:"
+
+#: sos/sosreport.py:556
+msgid "The following plugin options are available:"
+msgstr "Nasledujúce možnosti modulov sú dostupné:"
+
+#: sos/sosreport.py:571
+msgid "No plugin options available."
+msgstr "Nie sú dostupné žiadne možnosti modulov."
+
+#: sos/sosreport.py:580
+msgid "Press ENTER to continue, or CTRL-C to quit.\n"
+msgstr "Stlačte ENTER na pokračovanie, alebo CTRL-C na ukončenie.\n"
+
+#: sos/sosreport.py:603
+msgid "One or more plugins have detected a problem in your configuration."
+msgstr "Jeden alebo viacero modulov má problémy s konfiguráciou."
+
+#: sos/sosreport.py:605
+msgid "Please review the following messages:"
+msgstr "Prosím skontrolujte nasledujúce správy:"
+
+#: sos/sosreport.py:621
+msgid "Are you sure you would like to continue (y/n) ? "
+msgstr "Naozaj chcete pokračovať (a/n) ? "
+
+#: sos/sosreport.py:623
+msgid "y"
+msgstr "a"
+
+#: sos/sosreport.py:623
+msgid "Y"
+msgstr "A"
+
+#: sos/sosreport.py:626
+msgid "n"
+msgstr "n"
+
+#: sos/sosreport.py:626
+msgid "N"
+msgstr "N"
+
+#: sos/sosreport.py:819
+msgid "no valid plugins were enabled"
+msgstr "neboli povolené žiadne platné moduly"
+
+#: sos/sosreport.py:926
+#, fuzzy
+msgid " Running plugins. Please wait ..."
+msgstr "  Moduly bežia. Prosím čakajte ..."
+
+#: sos/policies/__init__.py:60
+#, fuzzy, python-format
+msgid ""
+"This utility will collect some detailed  information about the\n"
+"hardware and setup of your %(distro)s system.\n"
+"The information is collected and an archive is  packaged under\n"
+"/tmp, which you can send to a support representative.\n"
+"%(distro)s will use this information for diagnostic purposes ONLY\n"
+"and it will be considered confidential information.\n"
+"\n"
+"This process may take a while to complete.\n"
+"No changes will be made to your system.\n"
+"\n"
+msgstr ""
+"Tento nástroj zhromažďuje podrobné informácie o\n"
+"hardvéry a nastavení systému %(distroa)s.\n"
+"Informácie sa zhromažďujú a archivujú v podobe balíčka \n"
+"v /tmp, odkiaľ ich môžete poslať zástupcovi technickej podpory.\n"
+"%(distrob)s bude používať tieto informácie LEN pre diagnostické\n"
+" účely a budú považované za dôverné.\n"
+"\n"
+"Tento proces môže chvíľu trvať.\n"
+"V systéme nebudú vykonané žiadne zmeny.\n"
+"\n"
+
+#: sos/policies/__init__.py:179
+#, python-format
+msgid ""
+"Your sosreport has been generated and saved in:\n"
+"  %s"
+msgstr ""
+"Váš sosreport bol vygenerovaný a uložený v :\n"
+"  %s"
+
+#: sos/policies/__init__.py:182
+#, fuzzy
+msgid "The checksum is: "
+msgstr "Kontrolný súčet MD5: "
+
+#: sos/policies/__init__.py:184
+msgid "Please send this file to your support representative."
+msgstr "Prosím pošlite tento súbor zástupcovi technickej podpory."
+
+#: sos/policies/__init__.py:207
+msgid "No URL defined in config file."
+msgstr "Nezadaná žiadna URL adresa v konfiguračnom súbore."
+
+#: sos/policies/__init__.py:214
+msgid "Cannot upload to specified URL."
+msgstr "Nie je možné odoslať na zadanú adresu URL."
+
+#: sos/policies/__init__.py:251
+#, fuzzy
+msgid "There was a problem uploading your report to Red Hat support. "
+msgstr "Nastal problém pri odosielaní vašej správy na podporu Red Hat."
+
+#: sos/policies/__init__.py:253
+#, python-format
+msgid "Your report was successfully uploaded to %s with name:"
+msgstr "Vaša správa bola úspešne odoslaná na %s s názvom:"
+
+#: sos/policies/__init__.py:256
+msgid "Please communicate this name to your support representative."
+msgstr "Prosím kontaktujte zástupcu technickej podpory s týmto názvom."
+
+#: sos/policies/redhat.py:197
+#, python-format
+msgid "Please enter your first initial and last name [%s]: "
+msgstr "Prosím zadajte svoje meno a priezvisko [%s]: "
+
+#: sos/policies/redhat.py:200
+msgid "Please enter the case number that you are generating this report for: "
+msgstr "Prosím zadajte číslo, pod ktorým vygenerovať túto správu: "
+
+#: sos/policies/redhat.py:221
+msgid "Creating compressed archive..."
+msgstr "Vytváranie komprimovaného archívu..."
+
+#~ msgid "Could not create temporary directory."
+#~ msgstr "Nepodarilo sa vytvoriť dočasný adresár."
+
+#~ msgid "  sosreport build tree is located at : %s"
+#~ msgstr "  strom pre vytvorenie sosreportu je umiestnený v : %s"
+
+#~ msgid "Encrypting archive..."
+#~ msgstr "Šifrovanie archívu..."
+
+#~ msgid "There was a problem encrypting your report."
+#~ msgstr "Nastal problém pri šifrovaní vašej správy."
+
+#~ msgid "plugin %s skipped (--skip-plugins)"
+#~ msgstr "modul %s preskočený (--skip-plugins)"
+
+#~ msgid "plugin %s is inactive (use -e or -o to enable)."
+#~ msgstr "modul %s je neaktívny (použite -e alebo -o na jeho povolenie)."
+
+#~ msgid "plugin %s not specified in --only-plugins list"
+#~ msgstr "modul %s nie je špecifikovaný v zozname --only-plugins"
+
+#~ msgid "processing options from plugin: %s"
+#~ msgstr "spracovávanie možností modulu: %s"

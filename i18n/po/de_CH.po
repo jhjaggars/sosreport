@@ -1,0 +1,224 @@
+# German translation of sos
+# This file is distributed under the same license as the sos package.
+# Copyright (C) 2007 Red hat, Inc.
+#
+# Fabian Affolter <fab@fedoraproject.org>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SOS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-12-19 14:08-0600\n"
+"PO-Revision-Date: 2009-04-18 01:15+0100\n"
+"Last-Translator: Fabian Affolter <fab@fedoraproject.org>\n"
+"Language-Team: German <fedora-trans-de@redhat.com>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: KBabel 1.11.4\n"
+"X-Poedit-Language: Swiss German\n"
+
+#: sos/sosreport.py:224
+#, python-format
+msgid "sosreport (version %s)"
+msgstr "sosreport (version %s)"
+
+#: sos/sosreport.py:431
+#, python-format
+msgid "plugin %s does not validate, skipping"
+msgstr "Plugin %s validiert nicht, wird ausgelassen"
+
+#: sos/sosreport.py:432
+#, fuzzy
+msgid "does not validate"
+msgstr "Plugin %s validiert nicht, wird ausgelassen"
+
+#: sos/sosreport.py:436
+#, fuzzy, python-format
+msgid "plugin %s requires root permissions to execute, skipping"
+msgstr "sosreport benötigt zur Ausführung root-Rechte."
+
+#: sos/sosreport.py:437
+msgid "requires root"
+msgstr ""
+
+#: sos/sosreport.py:448
+msgid "inactive"
+msgstr ""
+
+#: sos/sosreport.py:453
+#, fuzzy, python-format
+msgid "plugin %s does not install, skipping: %s"
+msgstr "Plugin %s installiert sich nicht, wird ausgelassen"
+
+#: sos/sosreport.py:534
+msgid "no valid plugins found"
+msgstr "keine gültigen Plugins gefunden"
+
+#: sos/sosreport.py:538
+msgid "The following plugins are currently enabled:"
+msgstr "Die folgenden Plugins sind derzeit aktiviert:"
+
+#: sos/sosreport.py:543
+msgid "No plugin enabled."
+msgstr "Kein Plugin aktiviert."
+
+#: sos/sosreport.py:547
+msgid "The following plugins are currently disabled:"
+msgstr "Die folgenden Plugins sind derzeit deaktiviert:"
+
+#: sos/sosreport.py:556
+msgid "The following plugin options are available:"
+msgstr "Die folgenden Plugin-Optionen stehen zur Verfügung:"
+
+#: sos/sosreport.py:571
+msgid "No plugin options available."
+msgstr "Keine Plugin-Optionen verfügbar."
+
+#: sos/sosreport.py:580
+msgid "Press ENTER to continue, or CTRL-C to quit.\n"
+msgstr ""
+"Drücken Sie die EINGABETASTE, um fortzufahren, oder Ctrl-C, um abzubrechen.\n"
+
+#: sos/sosreport.py:603
+msgid "One or more plugins have detected a problem in your configuration."
+msgstr ""
+"Ein oder mehrere Plugins haben ein Problem in Ihrer Konfiguration entdeckt."
+
+#: sos/sosreport.py:605
+msgid "Please review the following messages:"
+msgstr "Bitte überprüfen Sie die folgenden Meldungen erneut:"
+
+#: sos/sosreport.py:621
+msgid "Are you sure you would like to continue (y/n) ? "
+msgstr "Möchten Sie wirklich fortfahren (j/n) ? "
+
+#: sos/sosreport.py:623
+msgid "y"
+msgstr "j"
+
+#: sos/sosreport.py:623
+msgid "Y"
+msgstr "J"
+
+#: sos/sosreport.py:626
+msgid "n"
+msgstr "n"
+
+#: sos/sosreport.py:626
+msgid "N"
+msgstr "N"
+
+#: sos/sosreport.py:819
+msgid "no valid plugins were enabled"
+msgstr "keine gültigen Plugins wurden aktiviert"
+
+#: sos/sosreport.py:926
+msgid " Running plugins. Please wait ..."
+msgstr ""
+
+#: sos/policies/__init__.py:60
+#, fuzzy, python-format
+msgid ""
+"This utility will collect some detailed  information about the\n"
+"hardware and setup of your %(distro)s system.\n"
+"The information is collected and an archive is  packaged under\n"
+"/tmp, which you can send to a support representative.\n"
+"%(distro)s will use this information for diagnostic purposes ONLY\n"
+"and it will be considered confidential information.\n"
+"\n"
+"This process may take a while to complete.\n"
+"No changes will be made to your system.\n"
+"\n"
+msgstr ""
+"Dieses Dienstprogramm sammelt einige detaillierte Informationen\n"
+"zur Hardware und Einrichtung Ihres Red Hat Enterprise Linux Systems.\n"
+"Die Informationen werden gesammelt und in einem Archiv unter /tmp\n"
+"zusammengefasst, welches Sie an einen Support-Vertreter schicken\n"
+"können. Red Hat verwendet diese Informationen AUSSCHLIESSLICH zu\n"
+"Diagnosezwecken und behandelt sie als vertrauliche Informationen.\n"
+"\n"
+"Die Fertigstellung dieses Prozesses kann eine Weile dauern.\n"
+"Es werden keinerlei Änderungen an Ihrem System vorgenommen.\n"
+"\n"
+
+#: sos/policies/__init__.py:179
+#, python-format
+msgid ""
+"Your sosreport has been generated and saved in:\n"
+"  %s"
+msgstr ""
+"Ihr \"sosreport\" wurde erstellt und gespeichert unter:\n"
+"  %s"
+
+#: sos/policies/__init__.py:182
+#, fuzzy
+msgid "The checksum is: "
+msgstr "Die md5sum lautet: "
+
+#: sos/policies/__init__.py:184
+msgid "Please send this file to your support representative."
+msgstr "Bitte senden Sie diese Datei an Ihren Support-Vertreter."
+
+#: sos/policies/__init__.py:207
+msgid "No URL defined in config file."
+msgstr ""
+
+#: sos/policies/__init__.py:214
+msgid "Cannot upload to specified URL."
+msgstr "Hochladen zu speziellem URL scheiterte."
+
+#: sos/policies/__init__.py:251
+#, fuzzy
+msgid "There was a problem uploading your report to Red Hat support. "
+msgstr "Beim Hochladen Ihres Berichts zum Red Hat Support trat ein Fehler auf."
+
+#: sos/policies/__init__.py:253
+#, fuzzy, python-format
+msgid "Your report was successfully uploaded to %s with name:"
+msgstr ""
+"Ihr Bericht wurde erfolgreich auf den Red Hat FTP-Server hochgeladen, mit "
+"dem Namen:"
+
+#: sos/policies/__init__.py:256
+msgid "Please communicate this name to your support representative."
+msgstr "Bitte teilen Sie diesen Namen Ihrem Support-Vertreter mit."
+
+#: sos/policies/redhat.py:197
+#, python-format
+msgid "Please enter your first initial and last name [%s]: "
+msgstr "Bitte geben Sie Ihren Vor- und Nachnamen ein [%s]: "
+
+#: sos/policies/redhat.py:200
+msgid "Please enter the case number that you are generating this report for: "
+msgstr ""
+"Bitte geben Sie die Fallnummer an, für die Sie diesen Bericht generieren: "
+
+#: sos/policies/redhat.py:221
+msgid "Creating compressed archive..."
+msgstr "Erstelle komprimiertes Archiv ..."
+
+#~ msgid "Could not create temporary directory."
+#~ msgstr "Temporäres Verzeichnis konnte nicht erstellt werden."
+
+#~ msgid "Encrypting archive..."
+#~ msgstr "Verschlüssele Archiv ..."
+
+#~ msgid "There was a problem encrypting your report."
+#~ msgstr "Beim Verschlüsseln Ihres Berichts trat ein Fehler auf."
+
+#~ msgid "plugin %s skipped (--skip-plugins)"
+#~ msgstr "Plugin %s ausgelassen (--skip-plugins)"
+
+#~ msgid "plugin %s is inactive (use -e or -o to enable)."
+#~ msgstr ""
+#~ "Plugin %s ist inaktiv (verwenden Sie -e oder -o, um es zu aktivieren)."
+
+#~ msgid "plugin %s not specified in --only-plugins list"
+#~ msgstr "Plugin %s nicht in der --only-plugins-Liste angegeben"
+
+#~ msgid "processing options from plugin: %s"
+#~ msgstr "Verarbeitung von Optionen des Plugins: %s"

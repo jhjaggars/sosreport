@@ -1,0 +1,217 @@
+# Hungarian translations for sos package.
+# Copyright (C) 2007 ORGANIZATION
+# Automatically generated, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: sos trunk\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-12-19 14:08-0600\n"
+"PO-Revision-Date: 2010-03-16 17:23+0100\n"
+"Last-Translator: Peter Bojtos <ptr@ulx.hu>\n"
+"Language-Team: Hungarian <fedora-trans-hu@redhat.com>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: sos/sosreport.py:224
+#, python-format
+msgid "sosreport (version %s)"
+msgstr "sosreport·(%s változat)"
+
+#: sos/sosreport.py:431
+#, python-format
+msgid "plugin %s does not validate, skipping"
+msgstr "%s dugasz érvénytelen, kihagyás"
+
+#: sos/sosreport.py:432
+#, fuzzy
+msgid "does not validate"
+msgstr "%s dugasz érvénytelen, kihagyás"
+
+#: sos/sosreport.py:436
+#, fuzzy, python-format
+msgid "plugin %s requires root permissions to execute, skipping"
+msgstr "sosreportnak root jogsi kell a futáshoz."
+
+#: sos/sosreport.py:437
+msgid "requires root"
+msgstr ""
+
+#: sos/sosreport.py:448
+msgid "inactive"
+msgstr ""
+
+#: sos/sosreport.py:453
+#, fuzzy, python-format
+msgid "plugin %s does not install, skipping: %s"
+msgstr "%s dugasz nem települ, kihagyás"
+
+#: sos/sosreport.py:534
+msgid "no valid plugins found"
+msgstr "nincs érvényes dugasz"
+
+#: sos/sosreport.py:538
+msgid "The following plugins are currently enabled:"
+msgstr "A következő dugaszokat engedélyezték:"
+
+#: sos/sosreport.py:543
+msgid "No plugin enabled."
+msgstr "Nincs engedélyezett dugasz."
+
+#: sos/sosreport.py:547
+msgid "The following plugins are currently disabled:"
+msgstr "A következő dugaszokat tiltották le:"
+
+#: sos/sosreport.py:556
+msgid "The following plugin options are available:"
+msgstr "A következő dugasz opciók érhetők el:"
+
+#: sos/sosreport.py:571
+msgid "No plugin options available."
+msgstr "Nincs elérhető dugasz opció."
+
+#: sos/sosreport.py:580
+msgid "Press ENTER to continue, or CTRL-C to quit.\n"
+msgstr "Nyomjon ENTER-t a folytatáshoz, vagy CTRL-C-t a kilépéshez.\n"
+
+#: sos/sosreport.py:603
+msgid "One or more plugins have detected a problem in your configuration."
+msgstr "Egy vagy több dugasz bajt érzékelt a konfigurációban."
+
+#: sos/sosreport.py:605
+msgid "Please review the following messages:"
+msgstr "Kérem nézze át a következő üzeneteket:"
+
+#: sos/sosreport.py:621
+msgid "Are you sure you would like to continue (y/n) ? "
+msgstr "Biztosan folytatni akarja? (i/n) "
+
+#: sos/sosreport.py:623
+msgid "y"
+msgstr "i"
+
+#: sos/sosreport.py:623
+msgid "Y"
+msgstr "I"
+
+#: sos/sosreport.py:626
+msgid "n"
+msgstr "n"
+
+#: sos/sosreport.py:626
+msgid "N"
+msgstr "N"
+
+#: sos/sosreport.py:819
+msgid "no valid plugins were enabled"
+msgstr "nem engedélyeztek érvényes dugaszt"
+
+#: sos/sosreport.py:926
+#, fuzzy
+msgid " Running plugins. Please wait ..."
+msgstr "Plugin-ek futtatása, kérem várjon…"
+
+#: sos/policies/__init__.py:60
+#, fuzzy, python-format
+msgid ""
+"This utility will collect some detailed  information about the\n"
+"hardware and setup of your %(distro)s system.\n"
+"The information is collected and an archive is  packaged under\n"
+"/tmp, which you can send to a support representative.\n"
+"%(distro)s will use this information for diagnostic purposes ONLY\n"
+"and it will be considered confidential information.\n"
+"\n"
+"This process may take a while to complete.\n"
+"No changes will be made to your system.\n"
+"\n"
+msgstr ""
+"E segédprogram részletes adatokat gyűjt a hardverről és a  \n"
+"%(distroa)s rendszer beállításáról.\n"
+"Az adatokat a /tmp mappába gyűjtik és az archíválják, amit \n"
+"elküldhet a támogatás képviselőjének.\n"
+"%(distrob)s CSAK diagnosztikai célból használja ezen adatokat, \n"
+"és bizalmasnak tekinti azokat.\n"
+"\n"
+"E folyamat befejezése eltarthat egy ideig.\n"
+"A rendszert nem változtatja meg.\n"
+"\n"
+
+#: sos/policies/__init__.py:179
+#, python-format
+msgid ""
+"Your sosreport has been generated and saved in:\n"
+"  %s"
+msgstr ""
+"A sos jelentés elkészült ide mentve:\n"
+"  %s"
+
+#: sos/policies/__init__.py:182
+#, fuzzy
+msgid "The checksum is: "
+msgstr "Az md5sum: "
+
+#: sos/policies/__init__.py:184
+msgid "Please send this file to your support representative."
+msgstr "Kérem küldje e fájlt a támogatás képviselőjének."
+
+#: sos/policies/__init__.py:207
+msgid "No URL defined in config file."
+msgstr "Nincs URL meghatározva a config fájlban."
+
+#: sos/policies/__init__.py:214
+msgid "Cannot upload to specified URL."
+msgstr "Nem lehet az URL-re feltölteni."
+
+#: sos/policies/__init__.py:251
+#, fuzzy
+msgid "There was a problem uploading your report to Red Hat support. "
+msgstr "A jelentést a Red Hat támogatáshoz feltöltvén baj történt."
+
+#: sos/policies/__init__.py:253
+#, python-format
+msgid "Your report was successfully uploaded to %s with name:"
+msgstr "A jelentést sikerült a %s kiszolgálóra feltölteni a következő néven:"
+
+#: sos/policies/__init__.py:256
+msgid "Please communicate this name to your support representative."
+msgstr "Kérem e nevet adja meg a támogatás képviselőjének."
+
+#: sos/policies/redhat.py:197
+#, python-format
+msgid "Please enter your first initial and last name [%s]: "
+msgstr "Kérem adja meg utónevét és vezetéknevét [%s]:·"
+
+#: sos/policies/redhat.py:200
+msgid "Please enter the case number that you are generating this report for: "
+msgstr "Kérem adja meg az eset számát, amire e jelentést készíti: "
+
+#: sos/policies/redhat.py:221
+msgid "Creating compressed archive..."
+msgstr "Tömörített archívum teremtése…"
+
+#~ msgid "Could not create temporary directory."
+#~ msgstr "Nem sikerült ideiglenes mappát teremteni."
+
+#~ msgid "  sosreport build tree is located at : %s"
+#~ msgstr "Sosreport építési fája itt található: %s"
+
+#~ msgid "Encrypting archive..."
+#~ msgstr "Archívum titkosítása…"
+
+#~ msgid "There was a problem encrypting your report."
+#~ msgstr "A jelentést titkosítván hiba történt."
+
+#~ msgid "plugin %s skipped (--skip-plugins)"
+#~ msgstr "%s dugasz kihagyva (--skip-plugins)"
+
+#~ msgid "plugin %s is inactive (use -e or -o to enable)."
+#~ msgstr "%s dugasz kikapcsolva (-e vagy -o kapcsolóval engedélyezheti)"
+
+#~ msgid "plugin %s not specified in --only-plugins list"
+#~ msgstr "%s dugasz nincs megadva --only-plugins listában"
+
+#~ msgid "processing options from plugin: %s"
+#~ msgstr "%s dugasz opcióinak feldolgozása"
