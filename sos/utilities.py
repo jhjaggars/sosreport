@@ -103,7 +103,7 @@ def convert_bytes(bytes_, K=1 << 10, M=1 << 20, G=1 << 30, T=1 << 40):
 
 
 
-def find(file_pattern, top_dir, max_depth=None, path_pattern=None):
+def find(file_pattern, top_dir, max_depth=None, path_pattern=None, follow_symlinks=False):
     """generator function to find files recursively. Usage:
 
     for filename in find("*.properties", "/var/log/foobar"):
@@ -117,11 +117,35 @@ def find(file_pattern, top_dir, max_depth=None, path_pattern=None):
         if max_depth and path.count(os.path.sep) >= max_depth:
             del dirlist[:]
 
-        if path_pattern and not fnmatch.fnmatch(path, path_pattern):
+        if path_pattern and not fnmatch.fnmatch(path, "*" + path_pattern):
             continue
 
         for name in fnmatch.filter(filelist, file_pattern):
             yield os.path.join(path, name)
+
+        if follow_symlinks:
+
+            if type(follow_symlinks) != set:
+                follow_symlinks = set()
+
+            if os.path.realpath(path) in follow_symlinks:
+                continue
+
+            for dir_ in dirlist:
+                p = os.path.join(path, dir_)
+                if not os.path.islink(p):
+                    continue
+
+                real_path = os.path.realpath(p)
+
+                if real_path not in follow_symlinks:
+                    follow_symlinks.add(real_path)
+                    md = (max_depth - 1) if max_depth else None
+                    for p in find(file_pattern, p, md, path_pattern, follow_symlinks):
+                        yield p
+                else:
+                    print real_path
+
 
 
 def grep(pattern, *files_or_paths):
