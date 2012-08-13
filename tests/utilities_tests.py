@@ -106,5 +106,5 @@ class FindTest(unittest.TestCase):
         self.assertFalse(any(name.endswith("leaf") for name in leaves))
 
     def test_follows_symlink(self):
-        leaves = find("leaf*", TEST_DIR, path_pattern="tests/path/*", follow_symlinks=True)
-        self.assertTrue(any("leaf" in name for name in leaves))
+        leaves = find("leaf*", os.path.join(TEST_DIR, 'path'), follow_symlinks=True)
+        self.assertTrue(any("leaf2" in name for name in leaves))

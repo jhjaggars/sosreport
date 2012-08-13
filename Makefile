@@ -106,4 +106,4 @@ zip: po
 	cd $(SRC_BUILD) && rm -rf sos
 
 test:
-	nosetests -v --with-cover --cover-package=sos --cover-html
+	nosetests -s -v --with-cover --cover-package=sos --cover-html

@@ -102,7 +102,6 @@ def convert_bytes(bytes_, K=1 << 10, M=1 << 20, G=1 << 30, T=1 << 40):
         return '%d' % bytes_
 
 
-
 def find(file_pattern, top_dir, max_depth=None, path_pattern=None, follow_symlinks=False):
     """generator function to find files recursively. Usage:
 
@@ -141,11 +140,8 @@ def find(file_pattern, top_dir, max_depth=None, path_pattern=None, follow_symlin
                 if real_path not in follow_symlinks:
                     follow_symlinks.add(real_path)
                     md = (max_depth - 1) if max_depth else None
-                    for p in find(file_pattern, p, md, path_pattern, follow_symlinks):
-                        yield p
-                else:
-                    print real_path
-
+                    for match in find(file_pattern, p, md, path_pattern, follow_symlinks):
+                        yield match
 
 
 def grep(pattern, *files_or_paths):
