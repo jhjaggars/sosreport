@@ -13,3 +13,7 @@ cover/
 *.mo
 sos.conf.5.gz
 sosreport.1.gz
+bin/
+include/
+lib/
+lib64
