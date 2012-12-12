@@ -36,6 +36,7 @@ import tarfile
 import hashlib
 import logging
 import fnmatch
+import selinux
 
 from contextlib import closing
 try:
@@ -201,16 +202,48 @@ class Archive(object):
 
         self.close()
 
-
 class TarFileArchive(Archive):
 
     def __init__(self, name):
         self._name = name
         self._suffix = "tar"
-        self.tarfile = tarfile.open(self.name(), mode="w")
+        self.tarfile = tarfile.open(self.name(),
+                    mode="w", format=tarfile.PAX_FORMAT)
 
+    # this can be used to set permissions if using the
+    # tarfile.add() interface to add directory trees.
+    def copy_permissions_filter(self, tar_info):
+        orig_path = tar_info.name[len(os.path.split(self._name)[-1]):]
+        fstat = os.stat(orig_path)
+        context = self.get_selinux_context(orig_path)
+        if(context):
+            tar_info.pax_headers['RHT.security.selinux'] = context
+        self.set_tar_info_from_stat(tar_info,fstat)
+        return tar_info
+
+    def get_selinux_context(self, path):
+        try:
+            (rc, c) = selinux.getfilecon(path)
+            return c
+        except:
+            return None
+
+    def set_tar_info_from_stat(self, tar_info, fstat):
+        tar_info.mtime = fstat.st_mtime
+        tar_info.pax_headers['atime'] = "%.9f" % fstat.st_atime
+        tar_info.pax_headers['ctime'] = "%.9f" % fstat.st_ctime
+        tar_info.mode = fstat.st_mode
+        tar_info.uid = fstat.st_uid
+        tar_info.gid = fstat.st_gid
+    
     def name(self):
         return "%s.%s" % (self._name, self._suffix)
+
+    def add_parent(self, path):
+        if (path == '/'):
+            return
+        path = os.path.split(path)[0]
+        self.add_file(path)
 
     def add_file(self, src, dest=None):
         if dest:
@@ -218,28 +251,43 @@ class TarFileArchive(Archive):
         else:
             dest = self.prepend(src)
 
+        tar_info = tarfile.TarInfo(name=dest)
+
         if os.path.isdir(src):
-            self.tarfile.add(src, dest)
+            tar_info.type = tarfile.DIRTYPE            
+            fileobj = None
         else:
             fp = open(src, 'rb')
             content = fp.read()
             fp.close()
-            fstat = os.stat(src)
-            tar_info = tarfile.TarInfo(name=dest)
             tar_info.size = len(content)
-            tar_info.mtime = fstat.st_mtime
-            tar_info.pax_headers['atime'] = fstat.st_atime
-            tar_info.mode = fstat.st_mode
-            tar_info.uid = fstat.st_uid
-            tar_info.gid = fstat.st_gid
-
-            self.tarfile.addfile(tar_info, StringIO(content))
+            fileobj = StringIO(content)
+        fstat = os.stat(src)
+        # FIXME: handle this at a higher level?
+        if src.startswith("/sys/") or src.startswith ("/proc/"):
+            context = None
+        else:
+            context = self.get_selinux_context(src)
+            if context:
+                tar_info.pax_headers['RHT.security.selinux'] = context
+        self.set_tar_info_from_stat(tar_info,fstat)
+        self.add_parent(src)
+        self.tarfile.addfile(tar_info, fileobj)
 
     def add_string(self, content, dest):
+        fstat = None
+        if os.path.exists(dest):
+            fstat = os.stat(dest)
         dest = self.prepend(dest)
         tar_info = tarfile.TarInfo(name=dest)
         tar_info.size = len(content)
-        tar_info.mtime = time.time()
+        if fstat:
+            context = self.get_selinux_context(dest)
+            if context:
+                tar_info.pax_headers['RHT.security.selinux'] = context
+            self.set_tar_info_from_stat(tar_info, fstat)
+        else:
+            tar_info.mtime = time.time()
         self.tarfile.addfile(tar_info, StringIO(content))
 
     def add_link(self, dest, link_name):

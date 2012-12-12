@@ -20,25 +20,6 @@ class kernel(Plugin, RedHatPlugin, DebianPlugin, UbuntuPlugin):
     """
     optionList = [("modinfo", 'gathers information on all kernel modules', 'fast', True)]
     moduleFile = ""
-    taintList = [
-        {'regex':'mvfs*', 'description':'Clearcase module'},
-        {'regex':'vnode*', 'description':'Clearcase module'},
-        {'regex':'vxfs*', 'description':'Veritas file system module'},
-        {'regex':'vxportal*', 'description':'Veritas module'},
-        {'regex':'vxdmp*', 'description':'Veritas dynamic multipathing module'},
-        {'regex':'vxio*', 'description':'Veritas module'},
-        {'regex':'vxspec*', 'description':'Veritas module'},
-        {'regex':'dcd*', 'description':'Dell OpenManage Server Administrator module'},
-        {'regex':'ocfs', 'description':'Oracle cluster filesystem module'},
-        {'regex':'oracle*', 'description':'Oracle module'},
-        {'regex':'vmnet*', 'description':'VMware module'},
-        {'regex':'vmmon*', 'description':'VMware module'},
-        {'regex':'egenera*', 'description':'Egenera module'},
-        {'regex':'emcp*', 'description':'EMC module'},
-        {'regex':'ocfs*', 'description':'OCFS module'},
-        {'regex':'nvidia', 'description':'NVidia module'},
-        {'regex':'ati-', 'description':'ATI module'}
-        ]
 
     def setup(self):
         self.collectExtOutput("/bin/uname -a", root_symlink = "uname")
@@ -59,6 +40,9 @@ class kernel(Plugin, RedHatPlugin, DebianPlugin, UbuntuPlugin):
         self.addCopySpecs([
             "/proc/sys/kernel/random/boot_id",
             "/sys/module/*/parameters",
+            "/sys/module/*/initstate",
+            "/sys/module/*/refcnt",
+            "/sys/module/*/taint",
             "/proc/filesystems",
             "/proc/ksyms",
             "/proc/slabinfo",
@@ -67,6 +51,9 @@ class kernel(Plugin, RedHatPlugin, DebianPlugin, UbuntuPlugin):
             "/etc/modules.conf",
             "/etc/modprobe.conf",
             "/etc/modprobe.d",
+            "/etc/sysctl.conf",
+            "/etc/sysctl.d",
+            "/lib/sysctl.d",
             "/proc/cmdline",
             "/proc/driver",
             "/proc/zoneinfo",
@@ -77,46 +64,3 @@ class kernel(Plugin, RedHatPlugin, DebianPlugin, UbuntuPlugin):
             "/proc/lock*"])
 
         self.collectExtOutput("/usr/sbin/dkms status")
-
-    def diagnose(self):
-
-        infd = open("/proc/modules", "r")
-        for modname in infd.readlines():
-            modname=modname.split(" ")[0]
-            ret, modinfo_srcver, rtime = self.callExtProg("/sbin/modinfo -F srcversion %s" % modname)
-            if not os.access("/sys/module/%s/srcversion" % modname, os.R_OK):
-                continue
-            infd = open("/sys/module/%s/srcversion" % modname, "r")
-            sys_srcver = infd.read().strip("\n")
-            infd.close()
-            if modinfo_srcver != sys_srcver:
-                self.addDiagnose("loaded module %s differs from the one present on the file-system" % modname)
-
-            # this would be a good moment to check the module's signature
-            # but at the moment there's no easy way to do that outside of
-            # the kernel. i will probably need to write a C lib (derived from
-            # the kernel sources to do this verification.
-
-        infd.close()
-
-    def analyze(self):
-
-        savedtaint = os.path.join(self.cInfo['dstroot'], "/proc/sys/kernel/tainted")
-        infd = open(savedtaint, "r")
-        line = infd.read()
-        infd.close()
-        line = line.strip()
-        if (line != "0"):
-            self.addAlert("Kernel taint flag is <%s>\n" % line)
-
-        infd = open(self.moduleFile, "r")
-        modules = infd.readlines()
-        infd.close()
-
-        for tainter in self.taintList:
-            p = re.compile(tainter['regex'])
-            for line in modules:
-                if p.match(line) != None:
-                    # found a taint match, create an alert
-                    moduleName = line.split()[0]
-                    self.addAlert("Check for tainted kernel by module %s, which is %s" % (moduleName, tainter['description']))

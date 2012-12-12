@@ -13,22 +13,44 @@
 ## Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
 from sos.plugins import Plugin, RedHatPlugin, DebianPlugin, UbuntuPlugin
-from os import listdir
+import os
 
 class sar(Plugin, RedHatPlugin, DebianPlugin, UbuntuPlugin):
     """Generate the sar file from /var/log/sa/saXX files
     """
 
-    files = ('/var/log/sa', '/usr/bin/sar')
+    sapath='/var/log/sa'
+    sarcmd='/usr/bin/sar'
+    files = (sapath, sarcmd)
 
     def setup(self):
-        path="/var/log/sa"
-        dirList=listdir(path)
+        # check to see if we are force-enabled with no sar installation
+        if not os.path.exists(self.sapath) or not os.path.isdir(self.sapath):
+            self.soslog.error(
+                    "sar directory %s does not exist or is not a directory"
+                    % self.sapath)
+            return
+
+        if not os.path.exists(self.sarcmd) \
+                or not os.access(self.sarcmd, os.X_OK):
+            self.soslog.error(
+                    "sar command %s does not exist or is not runnable"
+                    % self.sarcmd)
+            return
+
+        # catch exceptions here to avoid races
+        try:
+            dirList=listdir(self.sapath)
+        except:
+            self.soslog.error("sar directory %s cannot be read")
+            return
+
         # find all the sa file that don't have an existing sar file
         for fname in dirList:
             if fname[0:2] == 'sa' and fname[2] != 'r':
                 sar_filename = 'sar' + fname[2:4]
                 if sar_filename not in dirList:
-                    sar_command = "/bin/sh -c \"LANG=C /usr/bin/sar -A -f /var/log/sa/" + fname + "\""
-                    self.collectOutputNow(sar_command, sar_filename, root_symlink=sar_filename)
-
+                    sar_command = "/bin/sh -c \"LANG=C /usr/bin/sar " \
+                            + "-A -f /var/log/sa/" + fname + "\""
+                    self.collectExtOutput(sar_command, sar_filename,
+                                root_symlink=sar_filename)

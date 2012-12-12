@@ -128,7 +128,6 @@ class Plugin(object):
 
         self.copiedFiles = []
         self.executedCommands = []
-        self.diagnose_msgs = []
         self.alerts = []
         self.customText = ""
         self.optNames = []
@@ -540,13 +539,6 @@ class Plugin(object):
 
         return outfn
 
-    # For adding warning messages regarding configuration sanity
-    def addDiagnose(self, alertstring):
-        """Add a configuration sanity warning for this plugin. These will be
-        displayed on-screen before collection and in the report as well.
-        """
-        self.diagnose_msgs.append(alertstring)
-
     # For adding output
     def addAlert(self, alertstring):
         """Add an alert to the collection of alerts for this plugin. These
@@ -620,21 +612,9 @@ class Plugin(object):
         only if manually specified in the command line."""
         return True
 
-    def diagnose(self):
-        """This method must be overridden to check the sanity of the system's
-        configuration before the collection begins.
-        """
-        pass
-
     def setup(self):
         """This method must be overridden to add the copyPaths, forbiddenPaths,
         and external programs to be collected at a minimum.
-        """
-        pass
-
-    def analyze(self):
-        """
-        perform any analysis. To be replaced by a plugin if desired
         """
         pass
 
