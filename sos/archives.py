@@ -61,7 +61,7 @@ class DirectoryArchive(Archive):
         dest = self.prepend(dest)
         link_name = self.prepend(link_name)
         self._ensure(link_name)
-        os.symlink(dest, link_name)
+        os.symlink(os.path.abspath(dest), link_name)
 
     def open_file(self, name):
         return open(self.prepend(name))
