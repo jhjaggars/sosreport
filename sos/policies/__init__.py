@@ -160,8 +160,8 @@ No changes will be made to your system.
         """
         Return the class object of the prefered archive format for this platform
         """
-        from sos.utilities import TarFileArchive
-        return TarFileArchive
+        from sos.archives import DirectoryArchive
+        return DirectoryArchive
 
     def getArchiveName(self):
         """

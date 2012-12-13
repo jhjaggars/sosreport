@@ -50,7 +50,7 @@ import tempfile
 from sos import _sos as _
 from sos import __version__
 import sos.policies
-from sos.utilities import TarFileArchive, ZipFileArchive
+from sos.archives import TarFileArchive, ZipFileArchive
 from sos.reporting import Report, Section, Command, CopiedFile, CreatedFile, Alert, Note, PlainTextReport
 
 class TempFileUtil(object):
@@ -242,12 +242,13 @@ class SoSReport(object):
         return self.tempfile_util.new()
 
     def _set_archive(self):
+        #TODO: move this to archive module
         if self.opts.compression_type not in ('auto', 'zip', 'bzip2', 'gzip', 'xz'):
             raise Exception("Invalid compression type specified. Options are: auto, zip, bzip2, gzip and xz")
-        archive_name = os.path.join(self.opts.tmp_dir,self.policy.getArchiveName())
+        archive_name = self.policy.getArchiveName()
         if self.opts.compression_type == 'auto':
             auto_archive = self.policy.preferedArchive()
-            self.archive = auto_archive(archive_name)
+            self.archive = auto_archive(archive_name, tmp_dir=self.opts.tmp_dir)
         elif self.opts.compression_type == 'zip':
             self.archive = ZipFileArchive(archive_name)
         else:
